@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.calculator {
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.result {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>二元运算</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="calculator">
+    <h2>二元运算器</h2>
+    <div class="inputs">
+      <input type="number" id="num1" placeholder="第一个数字" />
+      <select id="operator">
+        <option value="+">＋</option>
+        <option value="-">－</option>
+        <option value="*">×</option>
+        <option value="/">÷</option>
+      </select>
+      <input type="number" id="num2" placeholder="第二个数字" />
+    </div>
+    <button onclick="calculate()">计算</button>
+    <div class="result" id="result">结果将显示在这里</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+</body>
+
+<script>
+  function calculate() {
+  const num1 = parseFloat(document.getElementById('num1').value);
+  const num2 = parseFloat(document.getElementById('num2').value);
+  const operator = document.getElementById('operator').value;
+  const resultEl = document.getElementById('result');
+
+  if (isNaN(num1) || isNaN(num2)) {
+    resultEl.textContent = '请输入两个有效数字。';
+    return;
+  }
+
+  let result;
+  switch (operator) {
+    case '+':
+      result = num1 + num2;
+      break;
+    case '-':
+      result = num1 - num2;
+      break;
+    case '*':
+      result = num1 * num2;
+      break;
+    case '/':
+      if (num2 === 0) {
+        resultEl.textContent = '除数不能为 0。';
+        return;
+      }
+      result = num1 / num2;
+      break;
+    default:
+      resultEl.textContent = '无效的运算符';
+      return;
+  }
+
+  resultEl.textContent = `结果：${result}`;
+}
+
+</script>
+</html>
