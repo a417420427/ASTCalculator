@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import AstNodeDom from "./AstNode";
 import { AstNode } from "@/utils/ast";
 
-const AstNodeDomWidthSvg: React.FC<{ node: AstNode }> = ({ node }) => {
+const AstNodeDomWithSvg: React.FC<{ node: AstNode }> = ({ node }) => {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [lines, setLines] = useState<
@@ -54,4 +54,4 @@ const styles: { [key: string]: React.CSSProperties } ={
     strokeWidth: 2,
   }
 }
-export default AstNodeDomWidthSvg;
+export default AstNodeDomWithSvg;
